@@ -1,0 +1,5 @@
+﻿  Game.cpp
+C:\Users\MASTER\Desktop\Practicas-TPV1\CarGame\CarGame\CarGame\CarGame_template_v0\CarGame\CarGameCode\Logic\GameObjects\Car.h(31,24): warning C4244: 'inicializando': conversión de 'const int' a 'float'; posible pérdida de datos
+C:\Users\MASTER\Desktop\Practicas-TPV1\CarGame\CarGame\CarGame\CarGame_template_v0\CarGame\CarGameCode\Logic\Game.cpp(18,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\MASTER\Desktop\Practicas-TPV1\CarGame\CarGame\CarGame\CarGame_template_v0\CarGame\CarGameCode\Logic\Game.cpp(49,20): warning C4018: '<': no coinciden signed/unsigned
+  CarGame.vcxproj -> C:\Users\MASTER\Desktop\Practicas-TPV1\CarGame\CarGame\CarGame\CarGame_template_v0\bin\CarGamePr1Debug.exe
