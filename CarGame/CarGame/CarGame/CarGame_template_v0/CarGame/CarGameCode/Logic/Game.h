@@ -58,7 +58,7 @@ public:
     ~Game();
 
     void startGame();
-    void update();
+    void update(bool& win);
     void draw();
 
     void setUserExit();

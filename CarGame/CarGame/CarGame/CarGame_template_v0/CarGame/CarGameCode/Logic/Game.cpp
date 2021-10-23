@@ -39,9 +39,10 @@ Game::~Game() {
     for (Wall* wall : obstacles) {
         delete wall;
     }
+	delete car;
 }
 
-void Game::update(){
+void Game::update(bool& win){
     car->update();
     //int i = 0;
     //eliminar elemento del vector de piedras desde aqui despues de comprobar que se ha ido 
@@ -55,23 +56,34 @@ void Game::update(){
 			car->lessLive();
 			delete obstacles[i];
 			obstacles.erase(obstacles.begin() + i);
+			car->setNullVel();
 		}
        // i++;
     }
     if (CollisionRR(getFinishCollider(), car->getCollider())) {
+		win = true;
+		delete car;
         setUserExit();
         
     }
+	if (car->getLives() == 0) {
+		win = false;
+		//delete car;
+	}
 }
 
-void Game::draw(){
-    car->draw();
-    for (Wall* wall : obstacles) {
-        wall->draw();
-        
-    }
-    drawFinishLine();
-    drawInfo();
+void Game::draw() {
+	car->draw();
+	for (Wall* wall : obstacles) {
+		vector<Wall*> yaPuestos = obstacles;
+		for (Wall* wallA : yaPuestos) {
+			if (!CollisionRR(wall->getCollider(), wallA->getCollider()))
+				wall->draw();
+		}
+
+	}
+	drawFinishLine();
+	drawInfo();
 }
 
 void Game::drawInfo() {
@@ -125,8 +137,7 @@ void Game::drawMenuInfo() {
     int y = font->getSize() / 2;
     int n = 0;
 
-     SDL_Rect rect = { getWindowWidth()/3, getWindowHeight()/3, getWindowWidth()*2/3,
-                        getWindowHeight()*2/3 };
+     SDL_Rect rect = { getWindowWidth()/3, getWindowHeight()/3, getWindowWidth()*2/3, getWindowHeight()*2/3 };
 
         string s = "Welcome to Super Cars";
 

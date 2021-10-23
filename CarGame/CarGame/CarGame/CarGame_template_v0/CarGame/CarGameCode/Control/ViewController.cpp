@@ -17,34 +17,43 @@ ViewController::ViewController(Game *_game) {
 
 void ViewController::run() {
 	estado = menu;
-    if(menu){
-        handleEvents();
-        game->drawMenuInfo();
-    }
+	uint32_t startTime = 0;
+	uint32_t frameTime;
+	bool win;
+	while (!salir) {
+		switch (estado)
+		{
+		case menu:
+			clearBackground();
+			handleEvents();
+			game->drawMenuInfo();
+			SDL_RenderPresent(renderer);
+			break;
+		case playing:
+			game->startGame();
 
 
-    else if (playing) {
-        cout << "playing" << endl;
-        uint32_t startTime = 0;
-        uint32_t frameTime;
-        game->startGame();
-
-
-        while (!game->doQuit()) {
-            frameTime = SDL_GetTicks() - startTime;
-            handleEvents();
-            if (frameTime >= frameDuration()) {
-                clearBackground();
-                game->update();
-                game->draw();
-                SDL_RenderPresent(renderer);
-                startTime = SDL_GetTicks();
-            }
-            else {
-                SDL_Delay(frameDuration() - frameTime);
-            }
-        }
-    }
+			while (!game->doQuit()) {
+				frameTime = SDL_GetTicks() - startTime;
+				handleEvents();
+				if (frameTime >= frameDuration()) {
+					clearBackground();
+					game->update(win);
+					game->draw();
+					SDL_RenderPresent(renderer);
+					startTime = SDL_GetTicks();
+				}
+				else {
+					SDL_Delay(frameDuration() - frameTime);
+				}
+				if (win) {
+					estado = menu;
+				}
+			}
+			break;
+		}
+	}
+    
 }
 
 void ViewController::clearBackground() {
@@ -60,21 +69,24 @@ void ViewController::handleEvents() {
         else if(event.type == SDL_KEYDOWN){
             SDL_Keycode key = event.key.keysym.sym;
 
-        if (key== SDLK_UP) {
-            game->setCarUp();
-        }
-        else if (key ==SDLK_DOWN ) {
-            game->setCarDown();
-        }
-        else if (key == SDLK_RIGHT) {
-            game->Accelerate();
-        }
-        else if (key == SDLK_LEFT) {
-            game->Brake();
-        }
-        else if (key == SDLK_SPACE&&menu) {
-            estado = playing;
-        }
+			if (key== SDLK_UP) {
+				 game->setCarUp();
+			}
+			else if (key ==SDLK_DOWN ) {
+				game->setCarDown();
+			}
+			else if (key == SDLK_RIGHT) {
+				game->Accelerate();
+			}
+			else if (key == SDLK_LEFT) {
+				game->Brake();
+			}
+			else if (key == SDLK_SPACE&&estado==menu) {
+				estado = playing;
+			}
+			else if (key == SDLK_ESCAPE && estado == menu) {
+				salir = true;
+			}	
 
         }
      

@@ -67,6 +67,9 @@ public:
 	void lessLive() {
 		lives--;
 	}
+	void setNullVel(float n = 0.1f) {
+		currentVel = n;
+	}
 
     SDL_Rect getCollider();
 };

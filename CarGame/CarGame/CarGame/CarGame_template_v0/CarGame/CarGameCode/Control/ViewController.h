@@ -31,6 +31,7 @@ public:
 
     unsigned int frameDuration();
     enum Estado { menu, playing, gameOver } estado;
+	bool salir = false;
 };
 
 

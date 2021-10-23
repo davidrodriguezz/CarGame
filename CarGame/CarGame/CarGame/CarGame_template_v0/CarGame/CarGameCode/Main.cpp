@@ -7,9 +7,9 @@
 using namespace std;
 
 
-void exampleLeak() {
+/*void exampleLeak() {
     int* a = new int(5);
-}
+}*/
 
 int main(int argc, char* argv[]){
 
@@ -24,7 +24,7 @@ int main(int argc, char* argv[]){
         cout << e;
     }
 
-    exampleLeak(); // You can remove this line
+    //exampleLeak(); // You can remove this line
 	return 0;
 }
 
