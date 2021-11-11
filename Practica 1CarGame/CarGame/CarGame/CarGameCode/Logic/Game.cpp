@@ -315,6 +315,12 @@ SDL_Rect Game::getFinishCollider() {
              hf };
 }
 
+bool Game::isOutOfGame(GameObject* obj) {
+
+   return obj->pos.getX() <= getOrigin().getX();
+    
+}
+
 
 //bool Game::CollisionRR(SDL_Rect obj1, SDL_Rect obj2) {
 //    SDL_Rect* solape=new SDL_Rect(obj1);					//comprueba la colisión entre los diferentes objetos del juego

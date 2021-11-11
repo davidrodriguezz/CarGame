@@ -16,7 +16,7 @@ Wall::~Wall() {
 
 void Wall::update() {
 
-	if (isOutOfGame()) {
+	if (game->isOutOfGame(this)) {
 		
 		pasado = true;
 	}
@@ -24,10 +24,10 @@ void Wall::update() {
 
 }
 
-bool Wall::isOutOfGame() {
-	
-	return pos.getX() <= game->getOrigin().getX();
-}
+//bool Wall::isOutOfGame() {
+//	
+//	return pos.getX() <= game->getOrigin().getX();
+//}
 
 void Wall::draw() {
 	drawTexture(game->getTexture(rockTexture));

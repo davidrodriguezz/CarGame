@@ -17,14 +17,14 @@ class GameObject : public Collider{
 
 
 protected:
-    Point2D<double> pos;
+    //Point2D<double> pos;
     int w, h;
     Game *game;
     Texture *texture;
 
     virtual void drawTexture(Texture* texture)=0;
 public:
-
+    Point2D<double> pos;
     GameObject(Game *game);
     virtual ~GameObject(){};
 

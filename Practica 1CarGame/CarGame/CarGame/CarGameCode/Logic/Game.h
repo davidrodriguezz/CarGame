@@ -95,6 +95,8 @@ public:
 		return tiempo;
 	}
 
+    bool isOutOfGame(GameObject* obj);
+
     void drawFinishLine();
     void setFinishPosition();
     void setFinishDimension(int width, int height);
