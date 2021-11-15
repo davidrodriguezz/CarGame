@@ -22,7 +22,9 @@ void Game::startGame() {
     car = new Car(this);
     car->setDimension(CAR_WIDTH, CAR_HEIGHT);
     car->setPosition(car->getWidth(), height/ 2.0);
-    GameObjectGenerator::generate(this, numpiedras);
+    goc = new GameObjectContainer();
+    GameObjectGenerator::generateW(this,goc,numpiedras);
+    GameObjectGenerator::generatePU(this,goc,npowerUps);
     
 
     setFinishPosition();
@@ -45,6 +47,8 @@ Game::~Game() {
     font = nullptr;
     delete textureContainer;
     textureContainer = nullptr;
+    delete goc;
+    goc = nullptr;
 }
 
 void Game::update(int& play){
@@ -52,26 +56,27 @@ void Game::update(int& play){
         car->update();
         
     }
-    for (int i = 0; i < obstacles.size(); i++) {
-       /* if (wall != nullptr) {*/
+
+   // for (int i = 0; i < obstacles.size(); i++) {
+       /* if (wall != nullptr) {
            obstacles[i]->update();
-        //}
-    }
+        }*/
+        goc->update();
+    //}
     
 
-	//for (int i = 0; i < obstacles.size(); i++) {
- //       if (obstacles[i]->isOutOfGame(car)) {				//borra las piedras cuando el coche las supera
-	//		delete obstacles[i];
- //           obstacles.erase(obstacles.begin()+i);
-	//	}
-	//	else if (SDL_HasIntersection(&obstacles[i]->getCollider(), &car->getCollider())) {			//si chocamos con una 
-	//		car->lessLive();
-	//		delete obstacles[i];
-	//		obstacles.erase(obstacles.begin() + i);
-	//		car->setNullVel();
-	//	}
- //      
- //   }
+	for (int i = 0; i <goc->GetSize(); i++) {
+        if (isOutOfGame(goc->GetObject(i))) {				//borra las piedras cuando el coche las supera
+            goc->removeDead(i);
+            
+		}
+		else if (SDL_HasIntersection(&goc->GetObject(i)->getCollider(), &car->getCollider())) {			//si chocamos con una 
+            goc->GetObject(i)->receiveCarCollision(car);
+            goc->removeDead(i);
+			//car->setNullVel();
+		}
+       
+    }
     if (SDL_HasIntersection(&getFinishCollider(), &car->getCollider())) {
         play = 1;
 		for (int x = 0; x < obstacles.size(); x++) {
@@ -104,12 +109,12 @@ void Game::draw() {				//dibuja cada una de las entidades del juego, meduante có
         car->draw();
     }
 
-    
-	for (GameObject* wall : obstacles) {
+    goc->draw();
+	/*for (GameObject* wall : obstacles) {
         if (wall != nullptr) {
             wall->draw();
         }
-	}
+	}*/
 	if (car != nullptr) {
 		drawFinishLine();
 		drawInfo(tiempo);
@@ -155,7 +160,7 @@ void Game::drawInfo(int time) {				//dibuja la info del juego
         n++;
         rect = { 100 * n, 0, getWindowWidth(),
                          int(font->getSize() * 1.8) };
-        string s5 = "Obstacles: "+ to_string(int(obstacles.size()));
+        string s5 = "Obstacles: "+ to_string(int(goc->GetSize()));
         renderText(s5, x + 100 * n + 20, y);
    // }
     // else if (menu) {
@@ -316,9 +321,38 @@ SDL_Rect Game::getFinishCollider() {
 }
 
 bool Game::isOutOfGame(GameObject* obj) {
-
-   return obj->pos.getX() <= getOrigin().getX();
     
+    return obj != nullptr && obj->pos.getX() <= car->pos.getX() - car->getWidth() / 2;
+    
+}
+void Game::CambiaEstado() {
+    if (estado == menu) {
+        estado = playing;
+    }
+    else if (estado == gameOver) {
+        estado = menu;
+    }
+}
+void Game::SetInitialState() {
+    estado = menu;
+}
+
+void Game::SetGameOverState() {
+    estado = gameOver;
+}
+
+void Game::drawState() {
+    
+        int x = font->getSize() / 2;
+        int y = font->getSize() / 2;
+        int n = 0;
+        int i = 0;
+
+    SDL_Rect rect = { 10, 315, getWindowWidth(),
+                     int(font->getSize() * 1.8) };
+
+    string s = "State: " + estado;
+    renderText(s, x, y);
 }
 
 

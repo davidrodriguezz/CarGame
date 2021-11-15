@@ -1,5 +1,5 @@
 #include "BadObject.h"
-
+#include "../Game.h"
 // TODO: add includes
 
 void  BadObject::onEnter(){
@@ -14,8 +14,9 @@ void BadObject::reset(){
     instances = 0;
 };
 
-//bool BadObject::toDelete() {
-//    return !alive || game->isRebased(this);
-//}
+bool BadObject::toDelete() {
+    return !alive||game->isOutOfGame(this);
+}
 
 int BadObject::instances = 0;
+

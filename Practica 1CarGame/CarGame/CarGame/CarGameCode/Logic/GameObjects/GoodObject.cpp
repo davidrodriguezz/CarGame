@@ -1,6 +1,7 @@
 #include "GoodObject.h"
-
+#include "../Game.h"
 // TODO: add includes
+
 
 void  GoodObject::onEnter() {
 	instances += 1;
@@ -15,7 +16,7 @@ void GoodObject::reset() {
 };
 
 bool GoodObject::toDelete() {
-	return !alive || game->isOutOfGame(this);
+	return !alive||game->isOutOfGame(this);
 }
 
 int GoodObject::instances = 0;

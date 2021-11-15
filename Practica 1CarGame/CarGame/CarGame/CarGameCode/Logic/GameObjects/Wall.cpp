@@ -5,7 +5,7 @@
 
 
 
-Wall::Wall(Game* game):GameObject(game) {
+Wall::Wall(Game* game):BadObject(game) {
 	
 	//texture = nullptr;
 }
@@ -16,10 +16,10 @@ Wall::~Wall() {
 
 void Wall::update() {
 
-	if (game->isOutOfGame(this)) {
+	/*if (game->isOutOfGame()) {
 		
 		pasado = true;
-	}
+	}*/
 	
 
 }
@@ -67,3 +67,8 @@ SDL_Rect Wall::getCollider() {
 			 getHeight() };
 }
 
+bool Wall::receiveCarCollision(Car* car) {
+	car->lessLive();
+	car->setNullVel();
+	return true;
+}

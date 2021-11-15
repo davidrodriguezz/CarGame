@@ -4,11 +4,13 @@ bool MoveCommand::parse(SDL_Event& event) {
 	if (event.type == SDL_KEYDOWN) {
 		SDL_Keycode key = event.key.keysym.sym;
 		if (key == SDLK_UP) {
-			bool arriba = true;
+			arriba = true;
+			return true;
 			//llamar a lo correspondiente
 		}
 		else if (key == SDLK_DOWN) {
-			bool arriba = false;
+			arriba = false;
+			return true;
 			//llamar a lo correspondiente
 		}
 	}

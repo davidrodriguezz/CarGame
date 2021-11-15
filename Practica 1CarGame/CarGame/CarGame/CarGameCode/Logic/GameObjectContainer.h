@@ -2,6 +2,7 @@
 #define CARGAME_GAMEOBJECTCONTAINER_H
 
 #include <vector>
+//#include "GameObjects/GameObject.h"
 using namespace std;
 
 class GameObject;
@@ -12,14 +13,25 @@ class GameObjectContainer {
 public:
 
     GameObjectContainer(){};
-    ~GameObjectContainer();
+    ~GameObjectContainer()
+    {
+        for (auto c : gameObjects) {
+            delete c;
+        }
+    };
     void update();
     void draw();
-    void drawDebug();
+    //void drawDebug();
     void add(GameObject *gameObject);
-    void removeDead();
+    void removeDead(int i);
     bool hasCollision(GameObject *g);
     vector<Collider *> getCollisions(GameObject *g);
+    GameObject* GetObject(int i) {
+        return gameObjects[i];
+    }
+    int GetSize() {
+        return gameObjects.size();
+    }
 };
 
 

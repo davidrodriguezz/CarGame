@@ -1,15 +1,18 @@
 #ifndef CARGAME_INFOBAR_H
 #define CARGAME_INFOBAR_H
 
-class Game;
+#include "../Logic/Game.h"
 
-class Infobar {
-    Game *game;
+class Infobar  {
+    Game* game;
 public:
-    Infobar(Game *game):game(game){}
+    Infobar(Game* game) :game(game) {}
 
     void drawInfo();
-    void drawHelp();
+    void drawMenuInfo();
+    void drawGameOverInfo();
+    void drawGameOverInfo2();
+    //void drawHelp();
     void drawState();
 };
 

@@ -3,6 +3,7 @@
 
 
 
+
 Point2D<int> GameObjectGenerator::generateRandomPosition(Game* game, GameObject* o) {
 	Point2D<int> posP;
 	int posPiedraX = rand() % 5000;
@@ -13,27 +14,30 @@ Point2D<int> GameObjectGenerator::generateRandomPosition(Game* game, GameObject*
 }
 
 
-void GameObjectGenerator::addInRandomPosition(Game* game, GameObject* o,int i) {
+void GameObjectGenerator::addInRandomPosition(Game* game, GameObject* o,GameObjectContainer* goc) {
 
-        o = new Wall(game);
+       
+        
         o->setDimension(game->ROCK_WIDTH, game->ROCK_HEIGHT);
         o->setPosition(generateRandomPosition(game,o).getX(),generateRandomPosition(game,o).getY());
+        
         bool solapa = false;
-        if (i == 0) {						//comprobamos si se pueden dibujar las piedras, si no la eliminamos
-            game->obstacles.push_back(o);
+        //if (i == 0) {						//comprobamos si se pueden dibujar las piedras, si no la eliminamos
+        //    //game->obstacles.push_back(o);
+        //    goc->add(o);
+        //}
+        //else {
+            
+        if (goc->hasCollision(o)) {
+              solapa = true;
         }
-        else {
-            for (int j = 1; j < game->obstacles.size(); j++) {
-                // if (SDL_HasIntersection(&wall->getCollider(),&obstacles[j]->getCollider())) {
-                if (SDL_HasIntersection(&o->getCollider(), &game->obstacles[j]->getCollider())) {
-                    solapa = true;
-                }
-            }
-            if (!solapa) {
-                game->obstacles.push_back(o);
-            }
-            else delete o;
+            
+        if (!solapa) {
+                //game->obstacles.push_back(o);
+                goc->add(o);
         }
+        else delete o;
+       // }
     
 
 }

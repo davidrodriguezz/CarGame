@@ -5,13 +5,14 @@
 #include "../../View/Box.h"
 #include "../../Logic/GameObjects/Car.h"
 #include "GameObject.h"
+#include "BadObject.h"
 //#include "../Game.h"
 
 using namespace std;
 
 
 
-class Wall : public GameObject{
+class Wall : public BadObject{
 private:
 	int numPiedras = 20;
 	
@@ -41,4 +42,5 @@ public:
 	SDL_Rect getCollider();
 	void drawTexture(Texture* texture);
 	bool isOutOfGame();
+	bool receiveCarCollision(Car* car) override;
 };

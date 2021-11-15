@@ -9,7 +9,9 @@
 #include "SDL_image.h"
 #include "SDL_ttf.h"
 
+
 #include "../Logic/Game.h"
+#include "CommandFactory.h"
 
 const int FRAME_RATE = 30;
 
@@ -18,7 +20,7 @@ private:
     Game *game;
     SDL_Window* window = nullptr;
     SDL_Renderer* renderer = nullptr;
-
+    CommandFactory* commandFactory = nullptr;
     void initSDL();
 public:
     ViewController(Game *game);
@@ -30,7 +32,7 @@ public:
     void clearBackground();
 
     unsigned int frameDuration();
-    enum Estado { menu, playing, gameOver } estado;		//enum de estados
+    //enum Estado { menu, playing, gameOver } estado;		//enum de estados
 	bool salir = false;		//booleano para poder salir del juego en menu o gameover
 };
 

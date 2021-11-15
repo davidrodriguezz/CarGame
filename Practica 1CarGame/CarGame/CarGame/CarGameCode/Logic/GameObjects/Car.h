@@ -22,7 +22,7 @@ private:
     const int MAX_SPEED = 10;
     const int INITIAL_POWER = 3;
 
-    Point2D<double> pos;
+    
     int w, h;
    
     //Texture *texture;
@@ -32,6 +32,8 @@ private:
     float currentVel = VSPEED;
 
 public:
+    Point2D<double> pos;
+
     Car(Game* game);
     ~Car();
 
@@ -67,6 +69,9 @@ public:
 	}
 	void lessLive() {
 		lives--;
+	}
+    void addLive() {
+		lives++;
 	}
 	void setNullVel(float n = 0.1f) {
 		currentVel = n;

@@ -5,19 +5,19 @@
 #include "../../View/Box.h"
 #include "../../Logic/GameObjects/Car.h"
 #include "GameObject.h"
-//#include "../Game.h"
+#include "GoodObject.h"
 
 using namespace std;
 
 class Game;
 
-class PowerUp : public GameObject {
+class PowerUp : public GoodObject {
 private:
 	int numPU = 5;
 
-	int w, h;
+	/*int w, h;
 	Texture* texturaP;
-	Point2D<double> posP;
+	Point2D<double> posP;*/
 
 
 	int PUEnJuego();
@@ -25,18 +25,19 @@ private:
 public:
 	bool pasado = false;
 
-	PowerUp();
+	PowerUp(Game* game);
 	~PowerUp();
 	void draw();
 	void update();
-	double getX() { return posP.getX(); };
+	/*double getX() { return posP.getX(); };
 	double getY() { return posP.getY(); };
 	int getWidth() { return w; };
-	int getHeight() { return h; };
+	int getHeight() { return h; };*/
 	void setPosition();
 	void setDimension(int width, int height);
 	SDL_Rect getCollider();
 	void drawTexture(Texture* texture);
-	bool isOutOfGame();
+	bool receiveCarCollision(Car* car) override;
+
 };
 

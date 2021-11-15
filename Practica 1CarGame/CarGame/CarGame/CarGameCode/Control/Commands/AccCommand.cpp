@@ -4,11 +4,13 @@ bool AccCommand::parse(SDL_Event& event) {
 	if (event.type == SDL_KEYDOWN) {
 		SDL_Keycode key = event.key.keysym.sym;
 		if (key == SDLK_RIGHT) {
-			bool arriba = true;
+			 arriba = true;
+			return true;
 			//llamar a lo correspondiente
 		}
 		else if (key == SDLK_LEFT) {
-			bool arriba = false;
+			arriba = false;
+			return true;
 			//llamar a lo correspondiente
 		}
 	}

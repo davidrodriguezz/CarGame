@@ -16,6 +16,8 @@
 
 #include "GameObjects/Car.h"
 #include "GameObjects/Wall.h"
+#include "GameObjectContainer.h"
+#include "GameObjects/PowerUp.h"
 
 
 
@@ -30,8 +32,11 @@ private:
     bool doExit;
     int roadLength;
     int width, height;
+    //Car *car = nullptr;
     Car *car = nullptr;
-    Wall *wall = nullptr;
+    //Wall *wall = nullptr;
+    GameObjectContainer* goc = nullptr;
+    PowerUp* pu = nullptr;
     
     
     TextureContainer *textureContainer;
@@ -44,8 +49,9 @@ private:
     Texture* texturaF;
     
     Point2D<double> posF;
-    
+    friend class Infobar;
 public:
+    enum Estado { menu, playing, gameOver } estado;
     const unsigned int CAR_WIDTH = 100;
     const unsigned  int CAR_HEIGHT = 50;
     
@@ -56,6 +62,7 @@ public:
     const unsigned  int GOAL_HEIGHT = 350;
 
     int numpiedras = 20;
+    int npowerUps = 3;
     vector<GameObject*> obstacles;
 
     Game(string name, int width, int height, int roadLength);
@@ -103,7 +110,11 @@ public:
     SDL_Rect getFinishCollider();
     void drawFinishTexture(Texture* texture);
    
-    bool CollisionRR(SDL_Rect rock1, SDL_Rect rock2);
+    void CambiaEstado();
+    void SetInitialState();
+    void SetGameOverState();
+    void drawState();
+    //bool CollisionRR(SDL_Rect rock1, SDL_Rect rock2);
    
 };
 
