@@ -9,7 +9,6 @@ Wall::Wall(Game* game):BadObject(game) {
 	//setDimension(WITDH, HEIGHT);
 	w = ROCK_WIDTH;
 	h = ROCK_HEIGHT;
-
 }
 
 Wall::~Wall() {

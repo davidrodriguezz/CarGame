@@ -377,31 +377,3 @@ void Game::reduceSpeed(float r)
 	car->reduceSpeed(r);
 }
 
-
-//bool Game::CollisionRR(SDL_Rect obj1, SDL_Rect obj2) {
-//    SDL_Rect* solape=new SDL_Rect(obj1);					//comprueba la colisión entre los diferentes objetos del juego
-//    SDL_Rect* objA;
-//    SDL_Rect* objB;
-//    objA =new SDL_Rect (obj1);
-//    objB =new SDL_Rect (obj2);
-//    if (SDL_IntersectRect(objA, objB, solape)) {
-//        delete objA;
-//        delete objB;
-//        delete solape;
-//        objA = nullptr;
-//        objB = nullptr;
-//        solape = nullptr;
-//        return true;
-//    }
-//    else {
-//        delete objA;
-//        delete objB;
-//        delete solape;
-//        objA = nullptr;
-//        objB = nullptr;
-//        solape = nullptr;
-//        return false;
-//    }
-//    
-//}
-

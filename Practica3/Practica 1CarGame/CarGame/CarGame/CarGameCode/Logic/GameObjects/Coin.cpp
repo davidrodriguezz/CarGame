@@ -6,7 +6,6 @@
 
 
 Coin::Coin(Game* game) :GoodObject(game) {
-
 	w = COIN_WIDTH;
 	h = COIN_HEIGHT;
 }

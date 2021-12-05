@@ -21,7 +21,6 @@ private:
 	const unsigned int PU_WIDTH = 40;
 	const unsigned  int PU_HEIGHT = 40;
 
-
 	int PUEnJuego();
 
 public:

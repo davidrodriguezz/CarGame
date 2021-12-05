@@ -11,6 +11,7 @@ class SuperRock : public BadObject
 private:
 	int numPiedras = 5;
 	int piedrasEnJuego();
+
 	const unsigned int SUPERROCK_WIDTH = 120;
 	const unsigned  int SUPERROCK_HEIGHT = 60;
 

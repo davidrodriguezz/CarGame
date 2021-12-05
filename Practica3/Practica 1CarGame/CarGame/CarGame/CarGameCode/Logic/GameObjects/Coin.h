@@ -15,6 +15,7 @@ class Coin : public GoodObject {
 private:
 	int numC = 10;
 	int PUEnJuego();
+
 	const unsigned int COIN_WIDTH = 30;
 	const unsigned  int COIN_HEIGHT = 30;
 

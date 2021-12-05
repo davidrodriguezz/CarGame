@@ -14,7 +14,7 @@ public:
 
         return false;
     };
-    virtual bool wave(Car *car){
+	virtual bool wave(int valor = 150) {
 
         return false;
     };

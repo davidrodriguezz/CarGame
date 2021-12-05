@@ -4,7 +4,6 @@
 #include "../Game.h"
 
 Oil::Oil(Game* game) :BadObject(game) {
-
 	w = OIL_WIDTH;
 	h = OIL_HEIGHT;
 }

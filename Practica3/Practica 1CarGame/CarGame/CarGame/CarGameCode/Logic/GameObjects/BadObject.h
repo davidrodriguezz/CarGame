@@ -15,7 +15,7 @@ public:
     ~BadObject() override = default;
     void update() override{};
     bool toDelete() override;
-
+	bool wave(int value) override;
     void onEnter() override;
     void onDelete() override;
     void static reset();

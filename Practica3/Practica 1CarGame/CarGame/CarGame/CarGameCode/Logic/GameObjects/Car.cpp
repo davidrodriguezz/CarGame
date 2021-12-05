@@ -21,7 +21,15 @@ void  Car::setPosition(double x, double y){
 
 void Car::update() {
     pos = Point2D<double>(getX() + currentVel, getY());
-
+	game->lessTimerTurbo(1);
+	if (game->getTimerTurbo() < 0) {
+		if (this->currentVel <= 10) {
+			currentVel = currentVel;
+		}
+		else {
+			currentVel = 10;
+		}
+	}
 	/*vector<Collider*> collisions = game->getCollisions(this);
 	for (auto c : collisions)
 		c-> receiveCarCollision(this);*/

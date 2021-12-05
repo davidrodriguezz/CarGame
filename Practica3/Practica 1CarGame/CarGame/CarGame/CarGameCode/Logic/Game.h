@@ -37,17 +37,13 @@ private:
     Car *car = nullptr;
     //Wall *wall = nullptr;
     GameObjectContainer* goc = nullptr;
-    PowerUp* pu = nullptr;
-	SuperRock* sR = nullptr;
-	Truck* tr = nullptr;
-	Oil* o = nullptr;
-	Turbo* t = nullptr;
+
     
     TextureContainer *textureContainer;
     SDL_Renderer* renderer = nullptr;
     Font *font;
 	int tiempo;
-    
+	int timerTurbo;
 
     int wf, hf;
     Texture* texturaF;
@@ -58,7 +54,6 @@ public:
     enum Estado { menu, playing, gameOver } estado;
     const unsigned int CAR_WIDTH = 100;
     const unsigned  int CAR_HEIGHT = 50;
-    
     
     
     const unsigned int GOAL_WIDTH = 20;
@@ -129,6 +124,15 @@ public:
     void setCoins(int coin);
     void setInitCoins();
 	void reduceSpeed(float r);
+	int getTimerTurbo() {
+		return timerTurbo;
+	}
+	void setTimerTurbo(int x) {
+		timerTurbo = x;
+	}
+	void lessTimerTurbo(int x) {
+		timerTurbo -= x;
+	}
     //bool CollisionRR(SDL_Rect rock1, SDL_Rect rock2);
    
 };

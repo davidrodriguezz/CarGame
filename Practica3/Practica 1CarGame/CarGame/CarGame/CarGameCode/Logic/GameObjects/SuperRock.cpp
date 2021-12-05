@@ -4,8 +4,7 @@
 #include "../Game.h"
 
 SuperRock::SuperRock(Game* game) :BadObject(game) {
-	w = SUPERROCK_WIDTH;
-	h = SUPERROCK_HEIGHT;
+
 }
 
 SuperRock::~SuperRock() {

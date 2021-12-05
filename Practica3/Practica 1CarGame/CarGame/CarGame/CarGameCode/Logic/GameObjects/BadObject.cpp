@@ -18,5 +18,11 @@ bool BadObject::toDelete() {
     return !alive||game->isOutOfGame(this);
 }
 
+bool BadObject::wave(int value)
+{
+	this->pos = { pos.getX() + value, pos.getY() };
+	return false;
+}
+
 int BadObject::instances = 0;
 

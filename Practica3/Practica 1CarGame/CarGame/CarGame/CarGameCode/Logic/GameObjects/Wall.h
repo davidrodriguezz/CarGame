@@ -19,10 +19,9 @@ private:
 	//int w, h;
 	////Texture* texturaP;
 	//Point2D<double> posP;
+	
 	const unsigned int ROCK_WIDTH = 50;
 	const unsigned  int ROCK_HEIGHT = 50;
-	
-	
 	
 	
 	void quitarvida();

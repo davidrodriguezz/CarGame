@@ -42,7 +42,7 @@ SDL_Rect Turbo::getCollider() {
 }
 
 bool Turbo::receiveCarCollision(Car* car) {
-
 	car->setVel(20);
+	game->setTimerTurbo(150);
 	return false;
 }

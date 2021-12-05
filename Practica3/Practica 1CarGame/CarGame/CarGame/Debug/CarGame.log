@@ -157,8 +157,8 @@ D:\datos GFM\uni\pvli\Practicas-TPV1\Practica3\Practica 1CarGame\CarGame\CarGame
           ]
 D:\datos GFM\uni\pvli\Practicas-TPV1\Practica3\Practica 1CarGame\CarGame\CarGame\CarGameCode\Logic\GameObjects\Car.h(33,24): warning C4244: 'inicializando': conversión de 'const int' a 'float'; posible pérdida de datos
 D:\datos GFM\uni\pvli\Practicas-TPV1\Practica3\Practica 1CarGame\CarGame\CarGame\CarGameCode\Logic\GameObjects\Car.h(96,16): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-D:\datos GFM\uni\pvli\Practicas-TPV1\Practica3\Practica 1CarGame\CarGame\CarGame\CarGameCode\Logic\GameObjects\Car.cpp(78,30): warning C4244: '*=': conversión de 'const double' a 'float'; posible pérdida de datos
-D:\datos GFM\uni\pvli\Practicas-TPV1\Practica3\Practica 1CarGame\CarGame\CarGame\CarGameCode\Logic\GameObjects\Car.cpp(87,29): warning C4244: '*=': conversión de 'const double' a 'float'; posible pérdida de datos
+D:\datos GFM\uni\pvli\Practicas-TPV1\Practica3\Practica 1CarGame\CarGame\CarGame\CarGameCode\Logic\GameObjects\Car.cpp(86,30): warning C4244: '*=': conversión de 'const double' a 'float'; posible pérdida de datos
+D:\datos GFM\uni\pvli\Practicas-TPV1\Practica3\Practica 1CarGame\CarGame\CarGame\CarGameCode\Logic\GameObjects\Car.cpp(95,29): warning C4244: '*=': conversión de 'const double' a 'float'; posible pérdida de datos
   Coin.cpp
 D:\datos GFM\uni\pvli\Practicas-TPV1\Practica3\Practica 1CarGame\CarGame\CarGame\CarGameCode\Logic\GameObjects\GameObject.h(46,32): warning C4244: 'return': conversión de 'T' a 'int'; posible pérdida de datos
           with
@@ -213,7 +213,7 @@ D:\datos GFM\uni\pvli\Practicas-TPV1\Practica3\Practica 1CarGame\CarGame\CarGame
           ]
 D:\datos GFM\uni\pvli\Practicas-TPV1\Practica3\Practica 1CarGame\CarGame\CarGame\CarGameCode\Logic\GameObjects\Car.h(33,24): warning C4244: 'inicializando': conversión de 'const int' a 'float'; posible pérdida de datos
 D:\datos GFM\uni\pvli\Practicas-TPV1\Practica3\Practica 1CarGame\CarGame\CarGame\CarGameCode\Logic\GameObjects\Car.h(96,16): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-D:\datos GFM\uni\pvli\Practicas-TPV1\Practica3\Practica 1CarGame\CarGame\CarGame\CarGameCode\Logic\GameObjects\Oil.cpp(47,22): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+D:\datos GFM\uni\pvli\Practicas-TPV1\Practica3\Practica 1CarGame\CarGame\CarGame\CarGameCode\Logic\GameObjects\Oil.cpp(46,22): warning C4305: 'argumento': truncamiento de 'double' a 'float'
   PowerUp.cpp
 D:\datos GFM\uni\pvli\Practicas-TPV1\Practica3\Practica 1CarGame\CarGame\CarGame\CarGameCode\Logic\GameObjects\GameObject.h(46,32): warning C4244: 'return': conversión de 'T' a 'int'; posible pérdida de datos
           with

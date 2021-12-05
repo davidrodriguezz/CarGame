@@ -14,6 +14,7 @@ bool WaveCommand::parse(SDL_Event& event) {
 void WaveCommand::execute() {
 	if (game->getCoins() >= 3) {
 		game->setCoins(-3);
+		vector<GameObject*> collisions;/// coger el vector, hacer bucle y llamar a wave()
 		//Pedir vector de objetos (colliders) y hacer sus respectivos movimienyods
 	}
 }

@@ -12,6 +12,7 @@ private:
 	int numTurbo = 5;
 	int piedrasEnJuego();
 	float timer = 7500;
+
 	const unsigned int TURBO_WIDTH = 70;
 	const unsigned  int TURBO_HEIGHT = 40;
 
